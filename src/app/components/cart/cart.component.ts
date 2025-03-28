@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.scss'],
 })
+
 export class CartComponent implements OnInit {
   cart: any[] = [];
   total: number = 0;
@@ -19,6 +20,8 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {
     this.cartService.cartItems$.subscribe(items => {
       this.cart = items;
+
+      
       this.total = this.cartService.getTotal();
     });
   }
