@@ -2,6 +2,21 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.4.
 
+# 🛒 Store UI — Food Ordering App
+
+This is a mobile-optimized Angular web app for browsing food items, adding to cart, checkout, and paying with Stripe.
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/vrushank0606/store-ui.git
+cd store-ui
+
+
 ## Development server
 
 To start a local development server, run:
@@ -9,6 +24,10 @@ To start a local development server, run:
 ```bash
 ng serve
 ```
+## Install dependencies
+
+npm install
+
 
 Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
