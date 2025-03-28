@@ -1,0 +1,28 @@
+<div class="cart-container">
+    <div class="logo" (click)="router.navigate(['/'])"> Foodify</div>
+    <h2>🛒 Your Cart</h2>
+  
+    <div *ngIf="cart.length === 0" class="empty">
+      Your cart is empty. Go grab some food!
+    </div>
+  
+    <div *ngFor="let item of cart" class="cart-item">
+      <img [src]="item.image" [alt]="item.name" />
+      <div class="item-info">
+        <h3>{{ item.name }}</h3>
+        <p>${{ item.price }}</p>
+        <div class="qty-control">
+          <button (click)="changeQty(item, item.quantity - 1)">−</button>
+          <span>{{ item.quantity }}</span>
+          <button (click)="changeQty(item, item.quantity + 1)">+</button>
+        </div>
+      </div>
+      <button class="remove" (click)="remove(item)">🗑️</button>
+    </div>
+  
+    <div class="cart-footer" *ngIf="cart.length > 0">
+      <div class="total">Total: ${{ total.toFixed(2) }}</div>
+      <button class="checkout-btn" (click)="router.navigate(['/checkout'])">Proceed to Checkout</button>
+    </div>
+  </div>
+  

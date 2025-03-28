@@ -1,0 +1,30 @@
+<div class="checkout-container">
+    <h2>🚚 Checkout</h2>
+  
+    <div *ngIf="cart.length === 0" class="empty">
+      Your cart is empty. Add items to proceed.
+    </div>
+  
+    <div *ngIf="cart.length > 0">
+
+      <h3>Delivery Details</h3>
+  
+      <form>
+        <input type="text" placeholder="Full Name" [(ngModel)]="name" name="name" />
+        <input type="tel" placeholder="Phone Number" [(ngModel)]="phone" name="phone" />
+        <textarea rows="3" placeholder="Delivery Address" [(ngModel)]="address" name="address"></textarea>
+      </form>
+  
+      <h3>Order Summary</h3>
+      <ul>
+        <li *ngFor="let item of cart">
+          {{ item.name }} × {{ item.quantity }} - ${{ item.price * item.quantity | number: '1.2-2' }}
+        </li>
+      </ul>
+  
+      <div class="total">Total: ${{ total | number: '1.2-2' }}</div>
+  
+      <button class="place-order-btn" (click)="placeOrder()">Place Order</button>
+    </div>
+  </div>
+  

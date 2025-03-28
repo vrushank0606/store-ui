@@ -1,0 +1,27 @@
+<div class="payment-container">
+    <h2>💳 Select Payment Method</h2>
+  
+    <div class="payment-methods">
+      <label>
+        <input type="radio" name="method" [(ngModel)]="selectedMethod" value="UPI" />
+        Apple Pay
+      </label>
+      <label>
+        <input type="radio" name="method" [(ngModel)]="selectedMethod" value="Card" />
+        Credit/Debit Card
+      </label>
+      <label>
+        <input type="radio" name="method" [(ngModel)]="selectedMethod" value="COD" />
+        PayPal
+      </label>
+    </div>
+  
+    <div class="summary">
+      <p>Total Payable: <strong>${{ total | number: '1.2-2' }}</strong></p>
+    </div>
+  
+    <button class="pay-btn" (click)="confirmPayment()">
+      Pay & Place Order
+    </button>
+  </div>
+  

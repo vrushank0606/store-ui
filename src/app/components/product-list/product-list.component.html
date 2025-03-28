@@ -1,0 +1,53 @@
+<div class="menu-container">
+    <h2 class="menu-heading">🍽️ Our Menu</h2>
+
+
+    <div class="cart-button-wrapper" *ngIf="cartService.getCart().length > 0">
+        <button class="cart-btn" (click)="router.navigate(['/cart'])">
+          🛒 View Cart ({{ cartService.getCart().length }})
+        </button>
+      </div>
+      
+    <div class="category-bar">
+        <button
+          *ngFor="let category of categories"
+          [class.active]="category === selectedCategory"
+          (click)="selectedCategory = category"
+        >
+          {{ category }}
+        </button>
+      </div>
+      
+    
+    <div class="filter-bar">
+        <label for="priceFilter">Filter by Price:</label>
+        <select id="priceFilter" [(ngModel)]="selectedPriceFilter">
+          <option value="all">All</option>
+          <option value="under10">Under $10</option>
+          <option value="under15">Under $15</option>
+          <option value="under20">Under $20</option>
+        </select>
+      </div>
+      
+    <div class="product-grid">
+      <div *ngFor="let product of filteredProducts" class="product-card">
+        <img [src]="product.image" [alt]="product.name" class="product-image" />
+  
+        <div class="product-info">
+          <h3 class="product-name">{{ product.name }}</h3>
+          <p class="product-price">${{ product.price }}</p>
+  
+          <div *ngIf="!product.addedToCart">
+            <button (click)="addToCart(product)" class="btn add-btn">Add to Cart</button>
+          </div>
+  
+          <div *ngIf="product.addedToCart" class="qty-controls">
+            <button (click)="decreaseQty(product)" class="btn">−</button>
+            <span>{{ product.quantity }}</span>
+            <button (click)="increaseQty(product)" class="btn">+</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
